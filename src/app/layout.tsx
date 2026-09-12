@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { fontSans, fontMono } from '@/lib/fonts'
+import { fontSans, fontSerif, fontMono } from '@/lib/fonts'
 import { siteConfig } from '@/config/site'
 import './globals.css'
 
@@ -14,30 +14,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#f7f7f7',
   width: 'device-width',
   initialScale: 1,
 }
@@ -50,12 +43,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background font-sans text-foreground">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-full bg-background font-sans text-foreground selection:bg-black selection:text-white">
         {children}
       </body>
     </html>
   )
 }
+

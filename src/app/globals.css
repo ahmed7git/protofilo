@@ -1,78 +1,56 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─────────────────────────────────────────── */
+/* ─── Lumos Design Tokens ─────────────────────────────────────────── */
 :root {
-  /* Background & Surface */
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --surface: #141414;
-  --surface-hover: #1a1a1a;
-  --surface-elevated: #1e1e1e;
-  --surface-card: #161616;
+  /* Font Stacks */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fragment Mono', Menlo, Consolas, monospace;
 
-  /* Brand / Accent */
-  --accent: #22c55e;
-  --accent-hover: #16a34a;
-  --accent-muted: rgba(34, 197, 94, 0.15);
+  /* Canvas & Surfaces */
+  --background: #f7f7f7;
+  --foreground: #262626;
+  --surface: #ffffff;
+  --surface-hover: #f1f1f1;
+  --surface-card: #ffffff;
+  --surface-muted: #ededed;
+  --surface-elevated: #ffffff;
+
+  /* Typography Colors */
+  --text-primary: #262626;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-disabled: #a3a3a3;
+
+  /* Accent & Status */
+  --accent: #00de51;
+  --accent-hover: #00c749;
+  --accent-muted: rgba(0, 222, 81, 0.12);
   --accent-foreground: #000000;
 
-  /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --text-disabled: #52525b;
+  /* Borders & Dividers */
+  --border: #e5e5e5;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-dark: #262626;
 
-  /* Borders */
-  --border: #27272a;
-  --border-hover: #3f3f46;
-  --border-accent: rgba(34, 197, 94, 0.3);
+  /* Shadows (Refined, Soft, Premium) */
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-pill: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-dropdown: 0 12px 32px rgba(0, 0, 0, 0.1);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(34, 197, 94, 0.15);
-
-  /* Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  /* Radius Scale */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
   --radius-full: 9999px;
 
-  /* Z-Index Scale */
-  --z-base: 0;
-  --z-above: 10;
-  --z-dropdown: 20;
-  --z-sticky: 30;
-  --z-overlay: 40;
-  --z-modal: 50;
-  --z-toast: 60;
-
   /* Spacing */
-  --section-gap: clamp(4rem, 8vw, 8rem);
-
-  /* Typography - Fluid Scale */
-  --text-xs: clamp(0.75rem, 0.7rem + 0.15vw, 0.8rem);
-  --text-sm: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
-  --text-base: clamp(0.875rem, 0.83rem + 0.2vw, 1rem);
-  --text-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-xl: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
-  --text-2xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
-  --text-3xl: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
-  --text-4xl: clamp(1.875rem, 1.5rem + 1.5vw, 2.5rem);
-  --text-5xl: clamp(2.25rem, 1.7rem + 2.2vw, 3.25rem);
-  --text-6xl: clamp(2.75rem, 2rem + 3vw, 4rem);
-  --text-hero: clamp(3rem, 2rem + 4vw, 5rem);
-
-  /* Animation Timing */
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --section-gap: clamp(5rem, 9vw, 8.5rem);
 }
 
 /* ─── Tailwind Theme Bindings ───────────────────────────────── */
@@ -81,8 +59,8 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
-  --color-surface-elevated: var(--surface-elevated);
   --color-surface-card: var(--surface-card);
+  --color-surface-muted: var(--surface-muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-muted: var(--accent-muted);
@@ -91,16 +69,16 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-border: var(--border);
-  --color-border-hover: var(--border-hover);
-  --color-border-accent: var(--border-accent);
+  --color-border-subtle: var(--border-subtle);
+
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 }
 
 /* ─── Base Styles ───────────────────────────────────────────── */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+  box-sizing: border-box;
 }
 
 html {
@@ -108,99 +86,130 @@ html {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background-color: #262626;
+  color: #ffffff;
 }
 
-/* ─── Custom Scrollbar (WebKit) ─────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
+/* ─── Typography Utilities ──────────────────────────────────── */
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.font-editorial {
+  font-family: var(--font-serif);
+  font-feature-settings: "cv03" on, "cv04" on, "cv09" on, "cv11" on;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
-}
-
-/* ─── Utility Classes ───────────────────────────────────────── */
-.text-gradient {
-  background: linear-gradient(135deg, var(--accent), #4ade80);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glass {
-  background: rgba(20, 20, 20, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* ─── Card & Glass Utilities ────────────────────────────────── */
+.lumos-card {
+  background: #ffffff;
   border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-hover:hover {
-  background: rgba(30, 30, 30, 0.8);
-  border-color: var(--border-hover);
+.lumos-card:hover {
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* ─── Animation Utilities ───────────────────────────────────── */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+.lumos-pill-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.4); }
+.lumos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-subtle);
 }
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* ─── Marquee Animation ─────────────────────────────────────── */
+@keyframes marquee-lumos {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.animate-marquee-lumos {
+  display: flex;
+  width: max-content;
+  animation: marquee-lumos 25s linear infinite;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-marquee-lumos:hover {
+  animation-play-state: paused;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+/* ─── Pulse Animation ───────────────────────────────────────── */
+@keyframes pulse-emerald {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
+.animate-pulse-emerald {
+  animation: pulse-emerald 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.animate-blink {
-  animation: blink 1s step-end infinite;
+/* ─── Integration Carousel Orbital Animations ─────────────────── */
+@keyframes orbit-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-33.33%); }
+@keyframes counter-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
-.animate-marquee {
-  animation: marquee 15s linear infinite;
+.animate-orbit-spin {
+  animation: orbit-spin 36s linear infinite;
 }
+
+.animate-counter-spin {
+  animation: counter-spin 36s linear infinite;
+}
+
+.pause-orbit:hover .animate-orbit-spin,
+.pause-orbit:hover .animate-counter-spin {
+  animation-play-state: paused;
+}
+

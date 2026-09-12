@@ -1,5 +1,4 @@
 import type { BaseEntity, Sortable } from './common'
-import type { LucideIcon } from 'lucide-react'
 
 export type SkillLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert'
 

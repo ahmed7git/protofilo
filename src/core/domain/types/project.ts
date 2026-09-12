@@ -1,4 +1,4 @@
-import type { BaseEntity, ImageData, LinkData, Sortable, Publishable } from './common'
+import type { BaseEntity, ImageData, Sortable, Publishable } from './common'
 
 export interface Project extends BaseEntity, Sortable, Publishable {
   title: string

@@ -1,1 +1,1 @@
-export { HeroSection } from './components/hero-section'
+export { LumosHero } from './components/lumos-hero'

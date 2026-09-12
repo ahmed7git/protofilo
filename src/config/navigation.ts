@@ -6,13 +6,11 @@ export interface NavItem {
 
 export const navigationConfig = {
   mainNav: [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Impact', href: '#impact' },
+    { label: 'Process', href: '#process' },
+    { label: 'Pricing', href: '#pricing' },
+    { label: 'FAQ', href: '#faq' },
   ] satisfies NavItem[],
 
   footerNav: [

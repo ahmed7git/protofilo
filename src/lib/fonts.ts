@@ -1,13 +1,11 @@
-import { Outfit, JetBrains_Mono } from 'next/font/google'
-
-export const fontSans = Outfit({
-  subsets: ['latin'],
+export const fontSans = {
   variable: '--font-sans',
-  display: 'swap',
-})
+}
 
-export const fontMono = JetBrains_Mono({
-  subsets: ['latin'],
+export const fontSerif = {
+  variable: '--font-serif',
+}
+
+export const fontMono = {
   variable: '--font-mono',
-  display: 'swap',
-})
+}
